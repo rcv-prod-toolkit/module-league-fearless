@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: black; */
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+@keyframes ticker-kf {
+  0% {
+    transform: translateX(var(--in));
+  }
+
+  100% {
+    /* 10rem for each logo x 6 logos total = -60rem */
+    transform: translateX(var(--out));
+  }
+}
+
+.container {
+  --in: 60%;
+  --out: 60%;
+
+  width: fit-content;
+  text-align: center;
+  opacity: 1;
+  animation: ticker-kf 5s linear alternate infinite; 
+  display: flex;
+}
+
+.container img {
+  width: 4rem;
+  flex: none;
+  margin: 0 0.5rem 0 0.5rem;
+  align-self: flex-start;
+  max-width: 50%;
+  height: auto;
+}

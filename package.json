@@ -1,0 +1,28 @@
+{
+    "name": "module-league-fearless",
+    "version": "1.0.0",
+    "description": "",
+    "author": "RCVolus",
+    "license": "MIT",
+    "toolkit": {
+        "modes": [
+            "PLUGIN"
+        ],
+        "plugin": {
+            "main": "dist/plugin.js"
+        },
+        "needsBuild": true,
+        "toolkitVersion": ">=1.8",
+        "dependencies": [
+            "module-league-state",
+            "module-league-static"
+        ]
+    },
+    "devDependencies": {
+        "@rcv-prod-toolkit/types": "github:rcv-prod-toolkit/types",
+        "typescript": "^5.3.3"
+    },
+    "scripts": {
+        "build": "tsc"
+    }
+}
