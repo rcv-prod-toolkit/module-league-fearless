@@ -11,8 +11,8 @@ function reset() {
 let server = ''
 
 LPTE.onready(async () => {
-  server = await window.constants.getWebServerPort()
-  const location = `http://${server}/pages/op-module-league-fearless/gfx`
+  server = await window.constants.getModuleURL()
+  const location = `${server}/gfx`
 
   const apiKey = await window.constants.getApiKey()
 
