@@ -29,7 +29,7 @@ jobs:
 
       - name: Create Zip
         if: startsWith(github.ref, 'refs/tags/')
-        run: zip -r module-league-fearless.zip package.json package-lock.json dist/* frontend/*
+        run: zip -r module-league-fearless.zip package.json package-lock.json dist/* frontend/* install.bat
 
       - uses: 'marvinpinto/action-automatic-releases@latest'
         if: startsWith(github.ref, 'refs/tags/')
