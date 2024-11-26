@@ -11,35 +11,21 @@ body {
   width: 1920px;
   height: 1080px;
   overflow: hidden;
-}
-
-@keyframes ticker-kf {
-  0% {
-    transform: translateX(var(--in));
-  }
-
-  100% {
-    /* 10rem for each logo x 6 logos total = -60rem */
-    transform: translateX(var(--out));
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  --in: 60%;
-  --out: 60%;
-
   width: fit-content;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   opacity: 1;
-  animation: ticker-kf 5s linear alternate infinite; 
   display: flex;
 }
 
 .container img {
-  width: 4rem;
-  flex: none;
-  margin: 0 0.5rem 0 0.5rem;
-  align-self: flex-start;
-  max-width: 50%;
-  height: auto;
+  width: 2.3rem;
+  margin: 0 0.3rem;
+  object-fit: contain;
 }
