@@ -57,11 +57,45 @@ module.exports = async (ctx: PluginContext) => {
     }))
 
     lastUpdate = Date.now()
+
+    ctx.LPTE.emit({
+      meta: {
+        type: 'insertOne',
+        namespace: 'plugin-database',
+        version: 1
+      },
+      collection: 'fearless',
+      data: {
+        bans: state
+      }
+    })
   })
 
-  ctx.LPTE.on(namespace, 'reset', () => {
+  ctx.LPTE.on(namespace, 'reset', async () => {
     state = []
+
+    await ctx.LPTE.request({
+      meta: {
+        type: 'delete',
+        namespace: 'plugin-database',
+        version: 1
+      },
+      collection: 'fearless',
+      limit: 1
+    })
   })
+
+  const res = await ctx.LPTE.request({
+    meta: {
+      type: 'request',
+      namespace: 'plugin-database',
+      version: 1
+    },
+    collection: 'fearless',
+    limit: 1
+  })
+
+  state = res?.data[0].bans ?? []
 
   // Emit event that we're ready to operate
   ctx.LPTE.emit({
