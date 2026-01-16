@@ -95,7 +95,7 @@ module.exports = async (ctx: PluginContext) => {
     limit: 1
   })
 
-  state = res?.data[0].bans ?? []
+  state = res?.data[0]?.bans ?? []
 
   // Emit event that we're ready to operate
   ctx.LPTE.emit({
